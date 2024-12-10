@@ -48,3 +48,16 @@ dependencies {
     implementation(libs.androidx.material3)
     implementation(platform(libs.androidx.compose.bom))
 }
+
+afterEvaluate {
+    publishing {
+        publications {
+            create<MavenPublication>("maven") {
+                from(components["release"])
+                groupId = "com.github.mohancn78"
+                artifactId = "compose-preview"
+                version = "1.0"
+            }
+        }
+    }
+}
